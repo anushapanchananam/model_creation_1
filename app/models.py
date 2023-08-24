@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from app.models import *
+
 class Topic(models.Model):
     topic_name=models.CharField(max_length=100,primary_key=True)
     def __str__(self):
@@ -15,7 +17,7 @@ class WebPage(models.Model):
 
 class AccessRecord(models.Model):
     name=models.ForeignKey(WebPage,on_delete=models.CASCADE)
-    date=models.DateField()
+    date=models.DateField(auto_now=True)
     author=models.CharField(max_length=100)
     email = models.EmailField(default='anusha@gmail.com')
 
